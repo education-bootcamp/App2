@@ -7,6 +7,16 @@ public class OrderDetail {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private
     long id;
+    @ManyToOne
+    @JoinColumn(
+            name = "item_code",
+            updatable = false,
+            insertable = false,
+            nullable = false,
+            foreignKey = @ForeignKey(
+                    name = "fk_item_code"
+            )
+    )
     private Item item;
     @ManyToOne
     @JoinColumn(

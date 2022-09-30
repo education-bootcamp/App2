@@ -22,7 +22,10 @@ public class Order {
 
     //===============
 
-    @OneToMany
+    @OneToMany(mappedBy = "order",
+            cascade = {
+            CascadeType.ALL
+    })
     private List<OrderDetail> details
             = new ArrayList<>();
 

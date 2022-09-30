@@ -15,8 +15,12 @@ public class Item {
 
     //==================
 
-    @ManyToMany
-    private List<Order> orders = new ArrayList<>();
+    @OneToMany(mappedBy = "item",
+            cascade = {
+                    CascadeType.ALL
+            })
+    private List<OrderDetail> details
+            = new ArrayList<>();
 
     public Item() {
     }

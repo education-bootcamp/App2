@@ -17,7 +17,8 @@ public class AppInitializer {
                         .addAnnotatedClass(Customer.class)
                         .addAnnotatedClass(Account.class)
                         .addAnnotatedClass(Order.class)
-                        .addAnnotatedClass(Item.class);
+                        .addAnnotatedClass(Item.class)
+                        .addAnnotatedClass(OrderDetail.class);
         SessionFactory sessionFactory = configuration.buildSessionFactory();
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
