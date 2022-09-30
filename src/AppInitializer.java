@@ -7,7 +7,8 @@ public class AppInitializer {
     public static void main(String[] args) {
         Configuration configuration=
                 new Configuration().configure("hibernate.cfg.xml")
-                        .addAnnotatedClass(Customer.class);
+                        .addAnnotatedClass(Customer.class)
+                        .addAnnotatedClass(Account.class);
         SessionFactory sessionFactory = configuration.buildSessionFactory();
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();

@@ -6,11 +6,15 @@ public class Customer {
     @Id
     @GeneratedValue(
             strategy = GenerationType.IDENTITY
-    )
+    )// autoincrement
     private long customerId;
     private CustomerName name;
     private String address;
     private double salary;
+
+    // ===========
+    @OneToOne(mappedBy = "customer")
+    private Account account;
 
     public Customer() {
     }
