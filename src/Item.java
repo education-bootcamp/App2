@@ -1,4 +1,6 @@
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="item")
@@ -10,6 +12,11 @@ public class Item {
     private String description;
     private double unitPrice;
     private int qtyOnHand;
+
+    //==================
+
+    @ManyToMany
+    private List<Order> orders = new ArrayList<>();
 
     public Item() {
     }

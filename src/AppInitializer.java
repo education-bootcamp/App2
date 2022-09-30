@@ -16,7 +16,8 @@ public class AppInitializer {
                 new Configuration().configure("hibernate.cfg.xml")
                         .addAnnotatedClass(Customer.class)
                         .addAnnotatedClass(Account.class)
-                        .addAnnotatedClass(Order.class);
+                        .addAnnotatedClass(Order.class)
+                        .addAnnotatedClass(Item.class);
         SessionFactory sessionFactory = configuration.buildSessionFactory();
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();

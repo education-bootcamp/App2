@@ -1,10 +1,13 @@
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "orders")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "order_code")
     private long id;
     private String date;
     private double totalCost;
@@ -16,6 +19,12 @@ public class Order {
             nullable = false
     )
     private Customer customer;
+
+    //===============
+
+    @ManyToMany(mappedBy = "orders")
+    private List<Item> items= new ArrayList<>();
+
 
     public Order() {
     }
