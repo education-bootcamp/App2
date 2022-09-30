@@ -8,6 +8,16 @@ public class OrderDetail {
     private
     long id;
     private Item item;
+    @ManyToOne
+    @JoinColumn(
+            name = "order_code",
+            updatable = false,
+            insertable = false,
+            nullable = false,
+            foreignKey = @ForeignKey(
+                    name = "fk_order_code"
+            )
+    )
     private Order order;
     private double unitPrice;
     private int qty;

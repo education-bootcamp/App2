@@ -22,8 +22,9 @@ public class Order {
 
     //===============
 
-    @ManyToMany(mappedBy = "orders")
-    private List<Item> items= new ArrayList<>();
+    @OneToMany
+    private List<OrderDetail> details
+            = new ArrayList<>();
 
 
     public Order() {
