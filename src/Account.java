@@ -9,10 +9,33 @@ public class Account {
     private long accountId;
     private String type;
 
+    @Transient //
+    private String openDate;
+
     //==============
-    @OneToOne
-    @Column(name = "customer_id")
+    @OneToOne()
+    @JoinColumn(
+            name = "customer_id",
+            nullable = false,
+            unique = true
+    )
     private Customer customer;
+
+    public String getOpenDate() {
+        return openDate;
+    }
+
+    public void setOpenDate(String openDate) {
+        this.openDate = openDate;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
 
     public Account() {
     }
