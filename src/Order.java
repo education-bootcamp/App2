@@ -9,6 +9,14 @@ public class Order {
     private String date;
     private double totalCost;
 
+    //==============
+    @ManyToOne
+    @JoinColumn(
+            name = "customer_id",
+            nullable = false
+    )
+    private Customer customer;
+
     public Order() {
     }
 
@@ -16,6 +24,14 @@ public class Order {
         this.id = id;
         this.date = date;
         this.totalCost = totalCost;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
     public long getId() {

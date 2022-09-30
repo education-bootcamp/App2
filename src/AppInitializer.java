@@ -15,13 +15,14 @@ public class AppInitializer {
         Configuration configuration=
                 new Configuration().configure("hibernate.cfg.xml")
                         .addAnnotatedClass(Customer.class)
-                        .addAnnotatedClass(Account.class);
+                        .addAnnotatedClass(Account.class)
+                        .addAnnotatedClass(Order.class);
         SessionFactory sessionFactory = configuration.buildSessionFactory();
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
         //session.save(c1);
         //session.save(account1);
-        session.save(account2);
+        //session.save(account2);
         transaction.commit();
     }
 }
